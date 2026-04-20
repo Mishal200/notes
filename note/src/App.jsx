@@ -9,18 +9,17 @@ function App() {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("All");
 
-  // Load from localStorage
+  
   useEffect(() => {
     const savedNotes = JSON.parse(localStorage.getItem("notes")) || [];
     setNotes(savedNotes);
   }, []);
 
-  // Save to localStorage
   useEffect(() => {
     localStorage.setItem("notes", JSON.stringify(notes));
   }, [notes]);
 
-  // Add Note
+
   const addNote = () => {
     if (!title) return;
 
@@ -36,7 +35,7 @@ function App() {
     setDescription("");
   };
 
-  // Delete Note
+
   const deleteNote = (id) => {
     setNotes(notes.filter((note) => note.id !== id));
   };
